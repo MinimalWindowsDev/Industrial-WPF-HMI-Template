@@ -19,5 +19,6 @@
     "omnisharp.enableRoslynAnalyzers": true,
     "omnisharp.enableEditorConfigSupport": true,
     "omnisharp.useModernNet": false,
-    "dotnet.preferCSharpExtension": true
+    "dotnet.preferCSharpExtension": true,
+    "omnisharp.useGlobalMono": "never"
 }
