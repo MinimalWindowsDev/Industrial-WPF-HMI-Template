@@ -1,0 +1,14 @@
+<UserControl x:Class="MyProject.Controls.SevenSegmentDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="100" Width="60">
+    <Grid>
+        <Path x:Name="SegmentA" Data="M 10,10 L 50,10 L 45,15 L 15,15 Z" />
+        <Path x:Name="SegmentB" Data="M 52,12 L 52,47 L 47,42 L 47,17 Z" />
+        <Path x:Name="SegmentC" Data="M 52,53 L 52,88 L 47,83 L 47,58 Z" />
+        <Path x:Name="SegmentD" Data="M 10,90 L 50,90 L 45,85 L 15,85 Z" />
+        <Path x:Name="SegmentE" Data="M 8,53 L 8,88 L 13,83 L 13,58 Z" />
+        <Path x:Name="SegmentF" Data="M 8,12 L 8,47 L 13,42 L 13,17 Z" />
+        <Path x:Name="SegmentG" Data="M 10,50 L 50,50 L 45,45 L 15,45 L 10,50 L 15,55 L 45,55 Z" />
+    </Grid>
+</UserControl>

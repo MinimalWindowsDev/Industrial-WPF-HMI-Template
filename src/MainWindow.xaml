@@ -19,6 +19,12 @@
             <Setter Property="Stroke" Value="Black"/>
             <Setter Property="StrokeThickness" Value="1"/>
         </Style>
+        <Style x:Key="IndicatorLampStyle" TargetType="Ellipse">
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Stroke" Value="Black"/>
+            <Setter Property="StrokeThickness" Value="1"/>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -49,12 +55,22 @@
             <!-- Left Column -->
             <StackPanel Grid.Column="0">
                 <GroupBox Header="Mode Select Switch">
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton Content="High" Margin="5" Checked="HighMode_Checked"/>
-                        <Ellipse x:Name="HighIndicator" Fill="Red" Style="{StaticResource IndicatorStyle}"/>
-                        <RadioButton Content="Low" Margin="15,5,5,5" Checked="LowMode_Checked"/>
-                        <Ellipse x:Name="LowIndicator" Fill="Green" Style="{StaticResource IndicatorStyle}"/>
-                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <RadioButton Content="High" Grid.Row="0" Grid.Column="0" Margin="5" GroupName="ModeSelect" Checked="HighMode_Checked"/>
+                        <Ellipse x:Name="HighIndicator" Grid.Row="0" Grid.Column="1" Fill="Red" Style="{StaticResource IndicatorLampStyle}" Opacity="0.2"/>
+
+                        <RadioButton Content="Low" Grid.Row="1" Grid.Column="0" Margin="5" GroupName="ModeSelect" Checked="LowMode_Checked"/>
+                        <Ellipse x:Name="LowIndicator" Grid.Row="1" Grid.Column="1" Fill="Green" Style="{StaticResource IndicatorLampStyle}" Opacity="0.2"/>
+                    </Grid>
                 </GroupBox>
 
                 <GroupBox Header="Status">
@@ -65,33 +81,27 @@
             <!-- Middle Column -->
             <StackPanel Grid.Column="1">
                 <GroupBox Header="Controller Inputs">
-                    <ItemsControl x:Name="InputsControl">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <controls:IndicatorLight Color="Red" LabelText="{Binding}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <StackPanel x:Name="InputsPanel" Orientation="Horizontal">
+                        <controls:SevenSegmentDisplay x:Name="Input1" Value="0" Color="Red" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Input2" Value="0" Color="Red" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Input3" Value="0" Color="Red" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Input4" Value="0" Color="Red" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Input5" Value="0" Color="Red" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Input6" Value="0" Color="Red" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Input7" Value="0" Color="Red" Margin="5"/>
+                    </StackPanel>
                 </GroupBox>
 
                 <GroupBox Header="Controller Outputs">
-                    <ItemsControl x:Name="OutputsControl">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <controls:IndicatorLight Color="Blue" LabelText="{Binding}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <StackPanel x:Name="OutputsPanel" Orientation="Horizontal">
+                        <controls:SevenSegmentDisplay x:Name="Output1" Value="0" Color="Blue" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Output2" Value="0" Color="Blue" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Output3" Value="0" Color="Blue" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Output4" Value="0" Color="Blue" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Output5" Value="0" Color="Blue" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Output6" Value="0" Color="Blue" Margin="5"/>
+                        <controls:SevenSegmentDisplay x:Name="Output7" Value="0" Color="Blue" Margin="5"/>
+                    </StackPanel>
                 </GroupBox>
 
                 <GroupBox Header="Performance Metrics">
