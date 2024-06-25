@@ -31,7 +31,7 @@ echo Build successful. Output is in the %OUTPUT_DIR% directory.
 
 if "%1"=="run" (
     echo Running the application...
-    "%OUTPUT_DIR%\%EXE_NAME%"
+    start "" "%OUTPUT_DIR%\%EXE_NAME%"
 )
 
 :eof

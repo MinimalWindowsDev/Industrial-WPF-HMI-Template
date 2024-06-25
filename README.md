@@ -1,14 +1,16 @@
-# CSharpMSBuildVSCode-Starter
+# WPF-HMI-Starter
 
-A minimalist C# project template using MSBuild and .NET Framework, optimized for Visual Studio Code development.
+A minimalist WPF-based Human Machine Interface (HMI) template for Windows, designed for developers with limited installation privileges.
 
 ## Overview
 
-This project provides a streamlined setup for C# development using tools that come preinstalled with Windows. It's designed for developers who:
+This project provides a streamlined setup for developing Human Machine Interfaces (HMIs) using Windows Presentation Foundation (WPF). It's designed for developers who:
 
 - Work in environments without admin privileges
 - Need to use the .NET Framework tools available on standard Windows installations
-- Prefer a lightweight, IDE-independent development setup
+- Want to create basic HMIs without installing additional software
+
+This repository is a fork of [CSharpMSBuildVSCode-Starter](https://github.com/MinimalWindowsDev/CSharpMSBuildVSCode-Starter), adapted for WPF-based HMI development.
 
 ## Why Preinstalled Tools?
 
@@ -19,11 +21,12 @@ We use `csc.exe` and `msbuild.exe` from the `C:\Windows\Microsoft.NET\Framework6
 - Uses `csc.exe` for compilation and `msbuild.exe` for project building
 - Configured for Visual Studio Code, but not dependent on it
 - Includes tasks for building, running, and cleaning the project
+- Provides a basic WPF window with a simple HMI example
 - Minimal project structure for easy understanding and customization
 
 ## Prerequisites
 
-- Windows OS with .NET Framework 4.0 or later installed (comes with most Windows versions)
+- Windows OS with .NET Framework 4.7.2 or later installed (comes with most Windows versions)
 - Visual Studio Code (recommended, but not required)
 
 ## Getting Started
@@ -38,14 +41,34 @@ We use `csc.exe` and `msbuild.exe` from the `C:\Windows\Microsoft.NET\Framework6
    ```
    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe MyProject.csproj
    ```
+
+   or
+
+   ```
+   .\build.bat
+   ```
+
 5. Run the compiled executable:
    ```
    .\bin\Debug\MyProject.exe
    ```
 
+   or
+
+   ```
+   .\build.bat run
+   ```
+6. To clean the project (remove build artifacts):
+
+   ```
+   build.bat clean
+   ```
+
 ## Project Structure
 
-- `src/`: Contains your C# source files
+- `src/`: Contains your C# source files and XAML
+  - `MainWindow.xaml` and `MainWindow.xaml.cs`: Define the main window of the application
+  - `App.xaml` and `App.xaml.cs`: Define the application
 - `MyProject.csproj`: The project file for MSBuild
 - `.vscode/`: Contains VS Code-specific settings
   - `tasks.json`: Defines build, run, and clean tasks
@@ -61,42 +84,6 @@ We've set up three tasks in VS Code for convenience:
 
 To use these tasks, press `Ctrl+Shift+P`, type "Tasks: Run Task", and select the desired task.
 
-# CSharpMSBuildVSCode-Starter
-
-
-## Building with build.bat
-
-In addition to the VS Code tasks, we've included a `build.bat` script for those who prefer command-line operations or aren't using VS Code. This script provides a simple way to build, run, and clean the project.
-
-### Using build.bat
-
-1. Open a command prompt in the project directory.
-2. Use the following commands:
-
-   - To build the project:
-     ```
-     build.bat
-     ```
-
-   - To build and run the project:
-     ```
-     build.bat run
-     ```
-
-   - To clean the project (remove build artifacts):
-     ```
-     build.bat clean
-     ```
-
-### Customizing build.bat
-
-The `build.bat` script is designed to be simple and easy to understand. You can open it in a text editor to customize the build process if needed. Here's a brief overview of what it does:
-
-- It sets paths for MSBuild and the C# compiler.
-- It defines the project file name and output directories.
-- It provides separate commands for building, running, and cleaning the project.
-
-Feel free to modify this script to suit your specific build requirements.
 
 ## Customizing the Project
 
@@ -108,4 +95,9 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details. This means:
+
+- You can freely use, modify, and distribute this code, even for commercial purposes.
+- You must include a copy of the license in any redistribution of the code.
+- You must clearly state any significant changes made to the code.
+- You must include a notice attributing the original work to this project.

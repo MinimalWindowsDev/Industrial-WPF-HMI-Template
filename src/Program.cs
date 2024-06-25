@@ -1,9 +1,15 @@
 using System;
 
-class Program
+namespace MyProject
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Hello, World!");
+        [STAThread]
+        public static void Main(string[] args)
+        {
+            App app = new App();
+            app.InitializeComponent();
+            app.Run();
+        }
     }
 }
