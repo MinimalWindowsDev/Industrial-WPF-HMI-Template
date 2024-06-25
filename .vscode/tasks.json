@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\msbuild.exe",
+            "args": [
+                "${workspaceFolder}\\MyProject.csproj",
+                "/property:GenerateFullPaths=true",
+                "/t:build",
+                "/p:Configuration=Release",
+                "/p:Platform=\"Any CPU\"",
+                "/p:OutputPath=${workspaceFolder}\\bin",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "${workspaceFolder}\\bin\\MyProject.exe",
+            "group": "test",
+            "presentation": {
+                "reveal": "always"
+            },
+            "dependsOn": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\msbuild.exe",
+            "args": [
+                "${workspaceFolder}\\MyProject.csproj",
+                "/t:Clean",
+                "/p:Configuration=Release",
+                "/p:Platform=\"Any CPU\""
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
