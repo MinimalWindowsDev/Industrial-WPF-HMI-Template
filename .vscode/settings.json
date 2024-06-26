@@ -19,6 +19,10 @@
     "omnisharp.enableRoslynAnalyzers": true,
     "omnisharp.enableEditorConfigSupport": true,
     "omnisharp.useModernNet": false,
+    "dotnet.server.useOmnisharp": true,
+    "omnisharp.sdkPath": "",
+    "omnisharp.useGlobalMono": "never",
+    "omnisharp.monoPath": "C:/Windows/Microsoft.NET/Framework64/v4.0.30319/",
     "dotnet.preferCSharpExtension": true,
-    "omnisharp.useGlobalMono": "never"
+    "omnisharp.path": "C:/ProgramData/chocolatey/lib/omnisharp/tools",
 }

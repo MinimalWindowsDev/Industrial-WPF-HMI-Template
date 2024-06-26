@@ -10,7 +10,7 @@
                 "/property:GenerateFullPaths=true",
                 "/t:build",
                 "/p:Configuration=Release",
-                "/p:Platform=\"Any CPU\"",
+                "/p:Platform=\"AnyCPU\"",
                 "/p:OutputPath=${workspaceFolder}\\bin",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
                 "isDefault": true
             },
             "presentation": {
-                "reveal": "silent"
+                "reveal": "always"
             },
             "problemMatcher": "$msCompile"
         },
